@@ -7,7 +7,12 @@ resource "azurerm_mssql_server" "sql_server" {
   # administrator_login          = var.admin_login
   # administrator_login_password = var.admin_password
   
-
+  azuread_administrator {
+    azuread_authentication_only = true
+    object_id = data.azuread_client_config.current.object_id
+    login_username = "MyAADAdmin"
+  }
+  
   # Security Settings
   minimum_tls_version = "1.2"
 }
