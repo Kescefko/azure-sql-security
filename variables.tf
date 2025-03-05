@@ -10,10 +10,6 @@ variable "subscription_id" {
   default = "1c2b3b73-e5d4-4ab6-9ac4-c807cb39e0ef"
 }
 
-provider "azurerm" {
-  features {}
-}
-
 # Random suffix for unique naming
 resource "random_id" "suffix" {
   byte_length = 4
